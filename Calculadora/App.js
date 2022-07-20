@@ -49,20 +49,24 @@ export default function App() {
        // Faz ação referente tecla pressionada
     switch(buttonPressed){
       case 'DEL':
-        setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 2)))
+        setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 1)))
         return
       case 'LIMPAR': // Limpa todo o conteúdo
         setLastNumber("") 
         setCurrentNumber("") 
         return
-        case '+/-':
-          setLastNumber((currentNumber * -1))
-          setCurrentNumber((currentNumber * -1).toString())
-          return
-        case '%':
-          setLastNumber(currentNumber + " % ")
-          setCurrentNumber((currentNumber / 100).toString())
-          return
+      case '=':
+        setLastNumber(currentNumber + " = ")
+        calculator()
+        return
+      case '+/-':
+        setLastNumber((currentNumber * -1))
+        setCurrentNumber((currentNumber * -1).toString())
+        return
+      case '%':
+        setLastNumber(currentNumber + " % ")
+        setCurrentNumber((currentNumber / 100).toString())
+        return
     }
 
     setCurrentNumber(currentNumber + buttonPressed)
