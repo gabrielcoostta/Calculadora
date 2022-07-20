@@ -55,12 +55,14 @@ export default function App() {
         setLastNumber("") 
         setCurrentNumber("") 
         return
-      case '=':
-        setLastNumber(currentNumber + " = ")
-        calculator()
-        return
-      case '+/-':
-        return
+        case '+/-':
+          setLastNumber((currentNumber * -1))
+          setCurrentNumber((currentNumber * -1).toString())
+          return
+        case '%':
+          setLastNumber(currentNumber + " % ")
+          setCurrentNumber((currentNumber / 100).toString())
+          return
     }
 
     setCurrentNumber(currentNumber + buttonPressed)
